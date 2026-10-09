@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #eff6ff;
+  --color-primary-100: #dbeafe;
+  --color-primary-200: #bfdbfe;
+  --color-primary-300: #93c5fd;
+  --color-primary-400: #60a5fa;
+  --color-primary-500: #3b82f6;
+  --color-primary-600: #2563eb;
+  --color-primary-700: #1d4ed8;
+  --color-primary-800: #1e40af;
+  --color-primary-900: #1e3a8a;
+}
+
+:root {
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #f1f5f9;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --border-color: #e2e8f0;
+  --accent-color: #3b82f6;
+  --success-color: #22c55e;
+  --warning-color: #f59e0b;
+  --error-color: #ef4444;
+  
+  --type-string: #22c55e;
+  --type-number: #3b82f6;
+  --type-boolean: #a855f7;
+  --type-null: #94a3b8;
+  --type-key: #0f172a;
+}
+
+.dark {
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --bg-tertiary: #334155;
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --border-color: #334155;
+  --accent-color: #60a5fa;
+  --success-color: #4ade80;
+  --warning-color: #fbbf24;
+  --error-color: #f87171;
+  
+  --type-string: #4ade80;
+  --type-number: #60a5fa;
+  --type-boolean: #c084fc;
+  --type-null: #64748b;
+  --type-key: #f1f5f9;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.tree-value-string { color: var(--type-string); }
+.tree-value-number { color: var(--type-number); }
+.tree-value-boolean { color: var(--type-boolean); }
+.tree-value-null { color: var(--type-null); font-style: italic; }
+.tree-key { color: var(--type-key); }
+
+.empty-badge {
+  font-size: 0.7rem;
+  padding: 0.1rem 0.4rem;
+  border-radius: 0.25rem;
+  background-color: var(--bg-tertiary);
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.search-highlight {
+  background-color: #fef08a;
+  border-radius: 2px;
+  padding: 0 2px;
+}
+
+.dark .search-highlight {
+  background-color: #854d0e;
+}
+
+.tree-node {
+  transition: background-color 0.15s;
+}
+
+.tree-node:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.expand-collapse-btn {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.15s;
+}
+
+.expand-collapse-btn:hover {
+  background-color: var(--bg-tertiary);
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+textarea {
+  resize: none;
+}
+
+.drop-zone {
+  border: 2px dashed var(--border-color);
+  transition: all 0.2s;
+}
+
+.drop-zone.drag-over {
+  border-color: var(--accent-color);
+  background-color: var(--bg-secondary);
+}
