@@ -53,7 +53,15 @@ export function OutputPanel({ tree, onShowToast }: OutputPanelProps) {
   }, [searchQuery]);
 
   const maxDepth = useMemo(() => (tree ? getMaxDepth(tree) : 0), [tree]);
-  const canShowTable = useMemo(() => tree && isArrayOfObjects(tree), [tree]);
+  const canShowTable = useMemo(() => {
+    if (!tree) return false;
+    if (isArrayOfObjects(tree)) return true;
+    // Check if root is an object with any top-level arrays of objects
+    if (tree.type === 'object' && tree.children) {
+      return tree.children.some(child => child.type === 'array' && isArrayOfObjects(child));
+    }
+    return false;
+  }, [tree]);
 
   const handleCopyValue = useCallback(
     (value: unknown) => {
